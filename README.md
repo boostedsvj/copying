@@ -8,6 +8,15 @@ git clone git@github.com:boostedsvj/copying.git
 cd copying
 mkdir -p env/bin
 mkdir -p env/lib/python3.6/site-packages
+
+cat <<EOF > pip.conf
+[global]
+prefix=$PWD/env
+[install]
+no-cache-dir = true
+ignore-installed = true
+EOF
+
 pip install tqdm seutils
 pip install -U https://github.com/tklijnsma/jdlfactory/archive/main.zip
 ```
